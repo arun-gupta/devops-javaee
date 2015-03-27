@@ -1,2 +1,24 @@
 # Devops with Java EE
 
+## TODO
+
+### P1
+
+. Instructions to setup Docker network on local machine
+. Instructions to setup email server on local machine
+. How to configure JBoss EAP to run Arquillian tests on OpenShift (something similar to WildFly/OpenShift adapter)
+. Configure email server as Docker container
+. DNS nameserver of the virtual machine needs to be configured in Jenkins (or local machine)
+. Login with `developer` account, instead of `jenkins`
+. Change app's name to include QA, UAT, Dev, could be the version/build number
+. Clean up Docker images to minimal size
+. Send an email to release user indicating that the build is ready to be pushed
+. Remove parallel execution of UAT and QA test
+. Remove Dev, QA, Test domains after successful execution. This frees up space for subsequent executions.
+. Show a failed test scenario
+
+### P2
+
+. Rollback to previous version
+. Quick mode vs Full mode - this will not recreate OpenShift application, instead just redeploy the WAR
+
