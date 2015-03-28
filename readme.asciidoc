@@ -16,9 +16,12 @@
 . Remove parallel execution of UAT and QA test
 . Remove Dev, QA, Test domains after successful execution. This frees up space for subsequent executions.
 . Show a failed test scenario
+. Run integration tests in JBoss EAP cartridge
+. Move Sonar as a separate step in BUILD stage
 
 ### P2
 
 . Rollback to previous version
 . Quick mode vs Full mode - this will not recreate OpenShift application, instead just redeploy the WAR
+. Ability to configure 3 apps in the same domain
 

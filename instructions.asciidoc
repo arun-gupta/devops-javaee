@@ -1,0 +1,16 @@
+# Instructions
+
+. Edit `/etc/resolv.conf` and add `nameserver 192.168.122.51` as the first line after `domain localdomain`
+.. Change attribute so that the file is immutable during the demo
+. Load Docker images: Jenkins, Nexus, Sonar
+. Configure Online credentials in Jenkins, Manage Jenkins
+. Setup email id + gmail password
+. Configure Jenkins /etc/hosts, add `192.168.59.105  sonar nexus` and restart Jenkins as `service jenkins restart`
+
+# Debugging
+
+. `service jenkins restart` restarts Jenkins (issued from Jenkins container `docker exec -it jenkins bash`)
+
+# Misc
+
+. "host" mode does not work on Mac
