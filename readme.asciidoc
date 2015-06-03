@@ -1,35 +1,30 @@
 # Devops with Java EE
 
-## TODO
+. Instructions and links to content available at https://github.com/amorena/democdonpaas
 
-### P1
+## DONE
 
-. Instructions to setup Docker network on local machine
-. Instructions to setup email server on local machine
-. How to configure JBoss EAP to run Arquillian tests on OpenShift (something similar to WildFly/OpenShift adapter)
-. Configure email server as Docker container
-. DNS nameserver of the virtual machine needs to be configured in Jenkins (or local machine)
-. DONE - Login with `developer` account, instead of `jenkins`
-. DONE - Change app's name to include QA, UAT, Dev, could be the version/build number
-. DONE - Clean up Docker images to minimal size
-. Send an email to release user indicating that the build is ready to be pushed
-. DONE - Remove parallel execution of UAT and QA test
-. DONE - Remove Dev (only) app (ticketmonsterVersionNumberSNAPSHOT) after successful execution. This frees up space for subsequent executions.
-. Show a failed test scenario
-. Run integration tests in JBoss EAP cartridge
-. DONE - Move Sonar as a separate step in BUILD stage
-
-### P2
-
-. Rollback to previous version
-. Quick mode vs Full mode - this will not recreate OpenShift application, instead just redeploy the WAR
-. DONE (Default feature of Openshift) - . Ability to configure 3 apps in the same domain
-
-### OTHER CHANGES SINCE CODEMOTION IN ROME
-
-. DONE - Installed Workspace Cleanup Plugin (https://wiki.jenkins-ci.org/display/JENKINS/Workspace+Cleanup+Plugin)
-  in order to cleanup jenkins jobs workspaces to save disk space
-. DONE - New version (not officially distributed and downloadable yet) of Openshift Deployer plugin for Jenkins in order to create/delete APP NAME based on a mix of fixed string + VARIABLE e.g: ticketmonster218SNAPSHOT (using the the standard plugin you cannot use a variable in app name). BTW, Openshift API doesn't accept APP NAME with non-alphanumeric characters.
-. DONE - Disable Maven archiving in Jenkins server configto save disk space 
-. DONE - Disable artifacts archiving in some jenkins jobs to save disk space
-. DONE - Home page jenkins http://localhost:8082/jenkins instead of http://localhost:8082/
+. DONE - Improved performance - end to end process is quicker
+. DONE - Changed the network configuration of docker containers (removed net=Host) and now all containers are just linked using "links"
+. DONE - Created email server docker containers (imap and email web client) (no more external inboxs)
+. DONE - Changed app's name for DEV to include ver number + SNAPSHOT
+. DONE - Cleaned up Docker images to minimal size
+. DONE - Configured send emails to developer, tester and release
+. DONE - Removed parallel execution of UAT and QA test
+. DONE - Added teardown job to remove DEV Openshift online env(ticketmonsterVerNumSNAPSHOT) after successful build, deploy and test. This frees up space for subsequent build executions.
+. DONE - Moved Sonar as a separate step in BUILD stage
+. DONE - Configure 3 apps in the same domain (this is an out-of-the-box Openshift feature)
+. DONE - Installed Workspace Cleanup Plugin (https://wiki.jenkins-ci.org/display/JENKINS/Workspace+Cleanup+Plugin) in order to cleanup jenkins jobs workspaces to save disk space
+. DONE - New version (not officially distributed and downloadable yet) of Openshift Deployer plugin for Jenkins in order to create/delete APP-NAME based on a mix of fixed string + VARIABLE e.g: ticketmonster218SNAPSHOT (Note: using the previous version of the plugin you cannot use a variable in app name). BTW, Openshift API doesn't accept APP NAME with non-alphanumeric characters.
+. DONE - Disabled Maven archiving in Jenkins server config to save disk space 
+. DONE - Disabled artifacts archiving in some jenkins jobs to save disk space
+. DONE - Changed Jenkins Server Home page http://localhost:8082/jenkins
+. DONE - Added "Prod test" job
+. DONE - Uploaded all docker images on Docker Registry Hub https://registry.hub.docker.com/repos/amorena
+. DONE - Configured automatic trigger (Jnkins build step) in JBDS (Commit-Push) and CLI (git push)
+. DONE - Installed and configured openssh in Jenkins container in order to configure GIT Server
+. DONE - Failed test scenario (could be triggered during the demo (e.g: mistakes in the app code or others)
+. DONE - Quick mode vs Full mode - this will not recreate OpenShift application, instead just redeploy the WAR. I'll configure this for the Rollback job
+. DONE - Created an updated demo scenario diagram available at https://github.com/amorena/democdonpaas 
+. DONE - Rollback to previous version can be done using "rebuild" button of deploy-prod job then selecting ARTIFACT VERSION
+. DONE - Configured Arquillian tests on OpenShift (local VM or online) JBoss EAP gears of Ticketmonster UAT. Too slow so I've removed this kind of test and configured a set of curl to test tickemonster key services availability in "QA tests", "UAT tests" and "PROD tests" 
